@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Daisy&#39;s Blog Page.">
+    <meta name="author" content="Daisy">
+    
+    <title>
+        
+            【Vision + X】多模态学习综述论文阅读 |
+        
+        Daisy&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://jsd.cdn.zzko.cn/gh/Nijikadesu/picx-images-hosting@master/blog-cover-img/Omae.4uax514hag.webp">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/font/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/font/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/font/css/brands.min.css">
+    
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"Daisy's Blog","author":"Daisy","avatar":"https://jsd.cdn.zzko.cn/gh/Nijikadesu/picx-images-hosting@master/blog-cover-img/Omae.4uax514hag.webp","logo":"/images/logo.svg","favicon":"https://jsd.cdn.zzko.cn/gh/Nijikadesu/picx-images-hosting@master/blog-cover-img/Omae.4uax514hag.webp"},"menu":{"home":"/                        || fa-solid fa-home","archives":"/archives            || fa-solid fa-box-archive","tags":"/tags                    || fa-solid fa-tags","categories":"/categories        || fa-solid fa-layer-group","about":"/about                  || fa-solid fa-user-graduate"},"first_screen":{"enable":true,"background_img":"https://jsd.cdn.zzko.cn/gh/Nijikadesu/picx-images-hosting@master/blog-web-img/light.1hs7a6b1w3.webp","background_img_dark":"https://jsd.cdn.zzko.cn/gh/Nijikadesu/picx-images-hosting@master/blog-web-img/dark.60u8d5goi6.webp","description":"在归途上，向着最闪耀的星辰祈愿。","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"https://github.com/Nijikadesu","email":"mingkun502@gmail.com","bilibili":"https://space.bilibili.com/439030348?spm_id_from=333.1007.0.0","kaggle":"https://www.kaggle.com/mingkunc"}},"scroll":{"progress_bar":false,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":true,"level_badge":false,"custom_badge":["Author"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true,"share":true,"reward":{"enable":false,"img_link":null,"text":null}},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":true},"cdn":{"enable":true,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2024,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":[null]},"root":"","source_data":{"icons":{"leetcode":{"svg":"<svg t=\"1727324222733\" class=\"icon\" viewBox=\"0 0 1024 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"4356\" width=\"200\" height=\"200\"><path d=\"M686.969238 765.086476l-115.039501 111.200586c-19.877051 19.919706-47.389279 28.237356-77.759367 28.237357s-57.882315-8.31765-77.802021-28.237357l-184.779799-186.102093c-19.919706-19.919706-29.943541-49.052809-29.943541-79.465551s10.023835-57.882315 29.943541-77.80202l184.225289-186.827222c19.919706-19.919706 47.986444-27.512228 78.356531-27.512228s57.882315 8.31765 77.759367 28.237357l115.039501 111.157931c21.924473 21.967128 58.223552 21.199345 81.043772-1.620876 22.82022-22.862875 23.588003-59.161953 1.66353-81.086426l-111.285895-112.43757a215.619088 215.619088 0 0 0-104.290538-57.029222l105.228939-106.764506c22.009782-21.924473 21.241999-58.266206-1.578221-81.086426-22.82022-22.82022-59.161953-23.545348-81.129081-1.620876l-430.811629 430.854284c-41.844179 41.886834-63.725997 99.683839-63.725997 163.580455 0 63.896616 21.881818 123.485115 63.725997 165.28664l185.419619 186.016783c41.844179 41.75887 99.683839 61.934504 163.537801 61.934504s121.693622-21.839164 163.580455-63.725997l111.285895-112.480225c21.924473-21.924473 21.15669-58.223552-1.66353-81.043772s-59.119299-23.588003-81.001117-1.66353z m200.86059-209.860714H455.098741c-29.943541 0-54.171363 25.763389-54.171363 57.413114s24.227822 57.413114 54.171363 57.413114h432.731087c29.900886 0 54.171363-25.763389 54.171363-57.413114s-24.270477-57.413114-54.171363-57.413114z\" p-id=\"4357\"></path></svg>","link":"https://leetcode.cn/u/modest-hodgkinnie/"}}},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               Daisy&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/about">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user-graduate"></i>
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
+                                </span>
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                </span>
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user-graduate"></i>
+                                </span>
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+                <div class="post-content-top border-box"
+                     style="height: 13.8rem"
+                >
+                    <div class="cover-post-title">
+                        【Vision + X】多模态学习综述论文阅读
+                    </div>
+                    <img class="post-cover" src="https://jsd.cdn.zzko.cn/gh/Nijikadesu/picx-images-hosting@master/blog-post-img/image.7i0dex4nl3.webp"
+                         onerror="this.style.display='none'"
+                    >
+                </div>
+            
+
+            <div class="post-content-bottom border-box has-cover">
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="https://jsd.cdn.zzko.cn/gh/Nijikadesu/picx-images-hosting@master/blog-cover-img/Omae.4uax514hag.webp">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Daisy</span>
+                                
+                                    <span class="author-badge">Author</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-10-07 16:23:04</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Sat Oct 19 2024 15:23:34 GMT+0000">2024-10-19 23:23:34</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">多模态</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>5.4k Words</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>18 Mins</span>
+            </span>
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body code-block-unshrink">
+                    
+
+                    
+                         <p>文章链接：<a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.02884">Vision + X: A Survey on Multimodal Learning in the Light of Data<i class="fas fa-external-link-alt"></i></a></p>
+<p>这篇综述文章综合分析了多模态机器学习的相关技术与不同模态数据的内在性质，并介绍了一些数据模态组合分类的方法。</p>
+<span id="more"></span>
+
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>人类以多感官感知世界并与之交互，自然界不同模态的信息源由人脑的不同部分处理与解释，构成复杂而和谐统一的传感系统。<br>为了赋予机器真正的智能，结合来自不同来源数据的多模态学习成为日益流行的研究领域。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>我们通过多感官人类系统感知世界并进行交流，不同模态的信息用人脑的不同区域处理，形成具体的功能。<br>人类神经处理中的专业划分突出了不哦那个模态之间的独特和共享特征。</p>
+<p>AI 研究进入以协作方式研究多个传感系统相互作用的时代 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="3.706ex" height="1.181ex" role="img" focusable="false" viewBox="0 -511 1638 522"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="27F6" d="M84 237T84 250T98 270H1444Q1328 357 1301 493Q1301 494 1301 496T1300 499Q1300 511 1317 511H1320Q1329 511 1332 510T1338 506T1341 497T1344 481T1352 456Q1374 389 1425 336T1544 261Q1553 258 1553 250Q1553 244 1548 241T1524 231T1486 212Q1445 186 1415 152T1370 85T1349 35T1341 4Q1339 -6 1336 -8T1320 -11Q1300 -11 1300 0Q1300 7 1305 25Q1337 151 1444 230H98Q84 237 84 250Z"></path></g></g></g></svg></mjx-container> 多模态机器学习热潮。</p>
+<p>调查内容：</p>
+<ul>
+<li>研究技术发展。</li>
+<li>阐释数据特征。</li>
+<li>考察技术设计逻辑与数据性质关系。</li>
+</ul>
+<p>本文以<strong>视觉</strong>模态为中心，对<strong>音频</strong>、<strong>文本</strong>等模态分别分析了数据特征。然后，本文讨论了多模态表示学习，具体考虑监督、无监督学习设置。<br>然后，本文研究深度学习的下游应用方面，分别讨论多模态机器学习的判别式应用和生成式应用。<br>最后，本文展望未来的挑战与可能的研究方向，并对全文内容进行总结。</p>
+<h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><h3 id="Vision"><a href="#Vision" class="headerlink" title="Vision"></a>Vision</h3><p>视觉数据：图像、视频。</p>
+<p>人类感官系统和计算机视觉研究的主要信息源，原始数据。</p>
+<p>挑战：连续空间和时间冗余。</p>
+<p><strong>Images.</strong></p>
+<p>特征：对变换的固有不变性，视觉特征可提取。</p>
+<p>特征提取手段的发展：</p>
+<p>机器学习手动特征提取 + 分析管道 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="3.706ex" height="1.181ex" role="img" focusable="false" viewBox="0 -511 1638 522"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="27F6" d="M84 237T84 250T98 270H1444Q1328 357 1301 493Q1301 494 1301 496T1300 499Q1300 511 1317 511H1320Q1329 511 1332 510T1338 506T1341 497T1344 481T1352 456Q1374 389 1425 336T1544 261Q1553 258 1553 250Q1553 244 1548 241T1524 231T1486 212Q1445 186 1415 152T1370 85T1349 35T1341 4Q1339 -6 1336 -8T1320 -11Q1300 -11 1300 0Q1300 7 1305 25Q1337 151 1444 230H98Q84 237 84 250Z"></path></g></g></g></svg></mjx-container> 深度神经网络。</p>
+<p>任务场景：图像分类，目标检测与分割，生成式任务。</p>
+<p><strong>Vidios.</strong></p>
+<p>特征，在时间维度上封装信息。</p>
+<p>深度特征提取手段面临的限制：</p>
+<p>神经网络可以对单个帧进行编码表示，但提取视频需要解决时间相关帧的链接问题。</p>
+<p>ex. 2D 卷积 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="3.706ex" height="1.181ex" role="img" focusable="false" viewBox="0 -511 1638 522"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="27F6" d="M84 237T84 250T98 270H1444Q1328 357 1301 493Q1301 494 1301 496T1300 499Q1300 511 1317 511H1320Q1329 511 1332 510T1338 506T1341 497T1344 481T1352 456Q1374 389 1425 336T1544 261Q1553 258 1553 250Q1553 244 1548 241T1524 231T1486 212Q1445 186 1415 152T1370 85T1349 35T1341 4Q1339 -6 1336 -8T1320 -11Q1300 -11 1300 0Q1300 7 1305 25Q1337 151 1444 230H98Q84 237 84 250Z"></path></g></g></g></svg></mjx-container> 3D 卷积。</p>
+<p>任务场景：视频分类（动作识别）和分割，直接合成视频。</p>
+<h3 id="Audio"><a href="#Audio" class="headerlink" title="Audio"></a>Audio</h3><p>音频数据：语音，音乐，环境声音。</p>
+<p>每一种音频数据都在各种多模态任务应用中具有相关性和适用性，同时，音频数据具有多样性。</p>
+<p>可以直接从环境捕获，原始数据。</p>
+<p>音频信号在时间维度上具有固有连续性。</p>
+<h3 id="Music"><a href="#Music" class="headerlink" title="Music."></a>Music.</h3><p>特点：强调情感和场景，而不是故事世界的一部分。</p>
+<p>音乐音频波形的高纬度带来数据处理困难 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="3.706ex" height="1.181ex" role="img" focusable="false" viewBox="0 -511 1638 522"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="27F6" d="M84 237T84 250T98 270H1444Q1328 357 1301 493Q1301 494 1301 496T1300 499Q1300 511 1317 511H1320Q1329 511 1332 510T1338 506T1341 497T1344 481T1352 456Q1374 389 1425 336T1544 261Q1553 258 1553 250Q1553 244 1548 241T1524 231T1486 212Q1445 186 1415 152T1370 85T1349 35T1341 4Q1339 -6 1336 -8T1320 -11Q1300 -11 1300 0Q1300 7 1305 25Q1337 151 1444 230H98Q84 237 84 250Z"></path></g></g></g></svg></mjx-container> 开发音乐数据表示形式。</p>
+<p>分类：非基于学习（non learning-based）&amp; 基于学习（learning-based）</p>
+<p>划分标准：数据表示是否通过深度学习技术获得。</p>
+<ul>
+<li>非基于学习</li>
+</ul>
+<p>连续表示（原始数据）：波形图，频谱图。</p>
+<p>离散表示：1D钢琴滚动（稀疏数据表示格式），2D MIDI钢琴滚曲（具有乐器类型的钢琴滚曲表示）。</p>
+<p>离散表示可通过预定义的音乐合成器解编码回原始空间。</p>
+<ul>
+<li>基于学习</li>
+</ul>
+<p>基于学习的离散表示：矢量量化（VQ），将高维数据降维到离散 token 空间。</p>
+<p>采用神经网络将原始音频信号编码为所需要维度的嵌入特征。</p>
+<p>需要考虑的特征：序列数据的时间连贯性，频率特征，节奏。</p>
+<p><strong>Speech.</strong></p>
+<p>口语的音频信号，与自然语言有内在对应关系。</p>
+<p>语音音频的离散表示与语言标记表示，离散语言标记驱动的语音表示格式统一化。</p>
+<p>语音分离：复合音频混合中分离出单个语音轨道。</p>
+<p>自动语音识别：口语转文本。</p>
+<p>由于语音和语言的内在对应关系，应用多语言翻译 or 语音-语言跨模态翻译 or 多模态生成。</p>
+<p><strong>Ambient sound.</strong></p>
+<p>伴随事件的声音，一般与视频绑定出现，表征特定动作或事件。利用音频模态对视频分类任务提供额外的模态信息。</p>
+<p>性质：嘈杂，难处理，模糊性。</p>
+<p><span id="jump"></span></p>
+<h3 id="Text"><a href="#Text" class="headerlink" title="Text."></a>Text.</h3><p>有大量人类知识，不能算作原始数据。</p>
+<p>特征：存在语言差异，但具有高度统一格式与精确语义，结构紧凑。</p>
+<p>大多数 NLP 任务的问题表示在“下一词预测”的概念下统一。</p>
+<p><strong>Captions.</strong></p>
+<p>字幕提供句子描述，总结视觉和文本相关多模态作品的视觉内容。</p>
+<p>表示方式：词袋。</p>
+<p>深度特征提取：LSTM。</p>
+<p><strong>Dialogue.</strong></p>
+<p>具有固有交互性，涉及参与者间的逻辑连贯性对话，不是对视觉内容的单方面表述。</p>
+<p>注意点：语义信息 + 句子间相关性 + 逻辑连贯性。</p>
+<p><strong>Question and Answer.</strong></p>
+<p>被用于视觉语言任务中，作为研究网络视觉推理能力或评估特定任务性能的一种方法。</p>
+<p>使用问答推理视觉上下文，通常与对话密切相关。</p>
+<p><strong>ASR and OCR Text.</strong></p>
+<p>自动语音识别 + 光学字符识别。</p>
+<h3 id="Other-Modalities"><a href="#Other-Modalities" class="headerlink" title="Other Modalities"></a>Other Modalities</h3><p><strong>Graph.</strong> 通过节点和边对关系信息进行结构化表示，捕捉元素之间的连接和交互关系。</p>
+<p><strong>Optical Flow.</strong> 测量表征 观察者和场景之间的相对运动 引起的视觉场景中物体的运动。光流可以被认为是从视觉信息显式导出的特定运动表示。</p>
+<p><strong>Point Clouds and Meshes.</strong> 3D数据，提供空间和结构信息，丰富我们对物理环境的理解。</p>
+<h2 id="Multimodal-Presentation-learning"><a href="#Multimodal-Presentation-learning" class="headerlink" title="Multimodal Presentation learning"></a>Multimodal Presentation learning</h2><p>多模态表示学习发展：传统监督方法 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="3.706ex" height="1.181ex" role="img" focusable="false" viewBox="0 -511 1638 522"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="27F6" d="M84 237T84 250T98 270H1444Q1328 357 1301 493Q1301 494 1301 496T1300 499Q1300 511 1317 511H1320Q1329 511 1332 510T1338 506T1341 497T1344 481T1352 456Q1374 389 1425 336T1544 261Q1553 258 1553 250Q1553 244 1548 241T1524 231T1486 212Q1445 186 1415 152T1370 85T1349 35T1341 4Q1339 -6 1336 -8T1320 -11Q1300 -11 1300 0Q1300 7 1305 25Q1337 151 1444 230H98Q84 237 84 250Z"></path></g></g></g></svg></mjx-container> 大规模预训练。</p>
+<p>为了克服数据标注的昂贵瓶颈，多模态表示学习研究趋势转向“非监督”设置。</p>
+<p><strong>多模态环境下表示学习的主要研究目标是从多个模态中学习对应数据表示之间的有效和判别映射。</strong></p>
+<h3 id="Network-Architectures"><a href="#Network-Architectures" class="headerlink" title="Network Architectures"></a>Network Architectures</h3><p><strong>Convolutional Neural Networks (CNNs).</strong> 通过由卷积层和激活函数组成的复函数从原始数据中提取高级数据表示。</p>
+<p>利用多类交叉熵损失进行分类任务： <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.777ex;" xmlns="http://www.w3.org/2000/svg" width="20.556ex" height="2.949ex" role="img" focusable="false" viewBox="0 -960 9085.8 1303.3"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></g><g data-mml-node="mo" transform="translate(575.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mo" transform="translate(1631.6,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="munderover" transform="translate(2576.2,0)"><g data-mml-node="mo"><path data-c="2211" d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z"></path></g><g data-mml-node="TeXAtom" transform="translate(1089,477.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g></g><g data-mml-node="TeXAtom" transform="translate(1089,-285.4) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g><g data-mml-node="mo" transform="translate(433,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(1211,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g><g data-mml-node="msub" transform="translate(5091.7,0)"><g data-mml-node="mi"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(523,-150) scale(0.707)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g></g><g data-mml-node="mi" transform="translate(6137.6,0)"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(278,0)"></path><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(778,0)"></path></g><g data-mml-node="mo" transform="translate(7415.6,0)"><path data-c="2061" d=""></path></g><g data-mml-node="mo" transform="translate(7415.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msub" transform="translate(7804.6,0)"><g data-mml-node="mi"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mi" transform="translate(536,-150) scale(0.707)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g></g><g data-mml-node="mo" transform="translate(8696.8,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
+<p><strong>Recurrent Neural Networks (RNNs).</strong> </p>
+<p>学习自然语言数据表示的一个具体要求是考虑其与单词顺序的时间相关性，利用 RNNs 和 LSTM 解决。</p>
+<p><strong>Transformers.</strong></p>
+<p>自注意力机制，序列数据长距离依赖建模。</p>
+<p>允许并行计算，高效率，已经拓展到多个模态（文本、视觉、音频）的数据处理应用。</p>
+<blockquote>
+<p>数据表示学习是研究管道的上游课题，多模态表示学习方法的具体评估通常依赖于具体的下游任务。</p>
+</blockquote>
+<h3 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h3><p>监督设置需要多模态源的注释来指导学习过程，这也是最经典的表示学习设置。</p>
+<p>参与建模的各模态数据在从各自的特征空间中获得数据表示后建立映射。</p>
+<p><strong>个体模态域表征学习 + 模态间映射</strong></p>
+<p>方法：</p>
+<ol>
+<li>在第一特征提取阶段使用固定的骨干模型。</li>
+<li>以端到端的方式学习给定数据对的统一表示。</li>
+</ol>
+<h3 id="Non-supervised-Learning"><a href="#Non-supervised-Learning" class="headerlink" title="Non-supervised Learning"></a>Non-supervised Learning</h3><p>非监督学习分类：</p>
+<ul>
+<li>无监督：没有人类监督的网络训练（无数据标注）</li>
+<li>弱监督：监督信号可能嘈杂、有限、不精确。</li>
+<li>自监督：模型训练自己从输入的另一部分学习输入的一部分。</li>
+</ul>
+<p>基本思想：依赖于来自多种模态的成对数据之间存在同步性质的前提。</p>
+<p>将大规模预训练视为特定类型的多模态表示学习，因为预训练的主要目标是学习一个联合和统一的跨模态表示，可以灵活地转移到其他领域或下游任务。</p>
+<p>流行预训练方法：</p>
+<ul>
+<li>基于对比学习的方法：CLIP。</li>
+<li>基于掩码重建的方法：GPT。</li>
+</ul>
+<p>这些预训练工作的一个共同点是，所提出的模型使用<strong>大量计算资源</strong>使用<strong>大量数据</strong>进行训练。</p>
+<h3 id="Trend-in-Representation-Learning"><a href="#Trend-in-Representation-Learning" class="headerlink" title="Trend in Representation Learning."></a>Trend in Representation Learning.</h3><p>使用新兴的基础模型来扩展数据表示学习。</p>
+<p>未来的研究需要<strong>关注具有更多边缘情况和复杂数据格式的真实场景，以实现安全和负责任的部署</strong>。</p>
+<h2 id="Discriminative-Applications"><a href="#Discriminative-Applications" class="headerlink" title="Discriminative Applications"></a>Discriminative Applications</h2><p>判别任务应用程序的多模态学习工作: Vision + X.</p>
+<p>不同模态的数据首先用各自的网络分支进行处理，然后在输出不同任务的最终结果之前，由额外的相互模块进一步执行模态间学习。</p>
+<h3 id="Vision-Audio"><a href="#Vision-Audio" class="headerlink" title="Vision + Audio"></a>Vision + Audio</h3><p><strong>Audio-Visual Event Localization (AVEL).</strong></p>
+<p>def AVE（视听事件）: 在视频片段中既可听又可见的事件。</p>
+<p>任务目标：使用环境音频数据进行动作识别，以及在监督或弱监督设置下进行时间定位的要求。</p>
+<p>常见方法：通过不同的注意力模块实现跨模态交互。</p>
+<p>评估：预测精度。</p>
+<p><strong>Audio-Visual Video Parsing (AVVP).</strong></p>
+<p>任务目标：将视频解析为时间段，并将其标记为可听、可视或两者兼有（识别）。</p>
+<p>寻求学习一种有效的视听功能作为基础，然后结合进一步改进的技术设计来满足特定的任务要求。</p>
+<p><strong>Visual Sound Source Localization (VSSL).</strong></p>
+<p>任务目标：旨在在给定声音的情况下定位图像中对应的视觉位置，学习成对的音频和视觉数据之间的相关性。</p>
+<p>常见方法：整个管道通常由用于视觉和音频输入的单独编码器组成，然后融合视听信息，以便在训练期间学习定位模块。</p>
+<p>评估：cIoU（完整IOU）和AUC（ROC曲线下面积）评分。</p>
+<h3 id="Vision-Text"><a href="#Vision-Text" class="headerlink" title="Vision + Text"></a>Vision + Text</h3><p><strong>Visual Grounding.</strong></p>
+<p>任务目标：判别式视觉语言任务，在给定文本描述作为输入的图像中定位对象，也被称为为“引用表达理解”。</p>
+<p>子目标：</p>
+<ol>
+<li>措辞：定位给定文本中提到的所有对象。</li>
+<li>落地：在图像中分别检测其对应的框。</li>
+</ol>
+<p>常见方法：一阶段 or 两阶段框架。</p>
+<p>对于两阶段框架：</p>
+<ul>
+<li>提取图像中潜在对象的区域建议。</li>
+<li>排名并将建议与语言短语匹配。</li>
+<li>视觉对象和文本短语在学习过程中对齐和连接，以避免冗余区域建议。</li>
+</ul>
+<p><strong>Temporal Activity Localization (TAL).</strong></p>
+<p>任务目标：在给定某个活动的语言描述作为查询的情况下定位视频片段的时间段。</p>
+<p>要求：沿时间方向进行额外的推理和匹配。</p>
+<p><strong>Visual Entailment (VE).</strong></p>
+<p>任务目标：预测一段文本与图像的逻辑关系。</p>
+<p>任务重点：网络的多模态推理能力。</p>
+<p>常见方法：早期采用单独的网络分支来处理视觉和文本数据，并利用注意力进行交互。改进框架进一步将文本假设分解为其组成部分，通过分解的文本成分引入抽象意义表示（AMR）图来增强推理。</p>
+<p>评估：预测精度。</p>
+<p><strong>Spatio-Temporal Video Grounding (STVG).</strong></p>
+<p>任务目标：给定一个未修剪的视频和一个对象的文本描述，该任务试图为所描述的目标对象定位一个时空管（即一系列边界框）。</p>
+<p>常见方法：采用两阶段设计，利用预先提取的对象建议，然后通过注意力机制整合时间定位。</p>
+<p>评估：比较 Ground Truth 和预测时间戳之间的帧重叠来评估 IoU 度量。</p>
+<h3 id="Vision-Audio-Text"><a href="#Vision-Audio-Text" class="headerlink" title="Vision + Audio + Text"></a>Vision + Audio + Text</h3><p><strong>Multimodal Retrieval.</strong> </p>
+<p>任务目标：多模态检索，从不同数据模态中检索与输入匹配的内容。</p>
+<p>常见方法：通过测量不同模态的学习表示之间的相似性来对表示空间进行操作。</p>
+<p><strong>Audio-Visual Question Answering.</strong></p>
+<p>任务目标：基于集成音频模态的视觉问答的扩展，涉及有关视频中不同视觉对象、声音及其关联的问题。</p>
+<p>常见方法：从 <a href="#jump">VQA</a> 框架扩展而来，具有额外的交互。</p>
+<p>ex. 将双分支编码器设计扩展为三个分支，并在通过注意力机制引入交互之前分别处理视频、音频和文本数据。</p>
+<p>评估：答案预测准确性。</p>
+<h2 id="Generative-Applications"><a href="#Generative-Applications" class="headerlink" title="Generative Applications"></a>Generative Applications</h2><p>跨模态生成任务：涉及从特定模态或多种模式生成数据作为输入。</p>
+<p>跨模态生成任务中，合成数据的两种高级方法：</p>
+<ol>
+<li>从给定的数据库中检索一个项目（基于检索的生成任务技术上归纳为表征学习，不做讨论）。</li>
+<li>通过神经网络直接合成和解码数据。</li>
+</ol>
+<h3 id="Gererative-Networks"><a href="#Gererative-Networks" class="headerlink" title="Gererative Networks"></a>Gererative Networks</h3><p>介绍三种生成骨干网络的模型。由于我读这篇文章的目的是了解多模态领域大致的动态和任务，故只作简要介绍，而不仔细展开。</p>
+<p><strong>VAE-Based Models.</strong></p>
+<p>变分自动编码器是无监督学习设置下基于深度神经自动编码器提出的经典生成模型。</p>
+<p>核心思想：经过有效训练的编码器应该以一种可以解码编码表示以重建解码器输入的原始数据。</p>
+<p><strong>GAN-Based Models</strong></p>
+<p>生成对抗网络，两个 agent（生成器 G 和鉴别器 D）进行对抗性游戏。</p>
+<p>生成器旨在合成和真实数据相似的数据，鉴别器的目标是将 G 合成的数据和真实数据区分开。</p>
+<p>用于无监督 / 弱监督环境。</p>
+<p><strong>DPM-Based Models</strong></p>
+<p>概率扩散模型（DPM）包括两个相反方向的有限步骤的马尔可夫链。</p>
+<p>前向，也称为“扩散”过程，旨在在每个扩散步骤中逐渐向给定数据添加噪声，而逆去噪过程旨在去除前向步骤中添加的噪声并从非信息噪声分布中恢复实际数据。</p>
+<p><strong>生成任务的评价</strong></p>
+<p>在多模态设置中对合成数据的评估考虑了单峰和多模态标准。单峰度量不仅用于多模态场景，还用于一般的生成任务，如图像生成中的保真度。除了一般质量外，多模态生成还考虑了跨模态对应，例如视频和音乐之间的节拍对应。</p>
+<h3 id="Vision-Audio-1"><a href="#Vision-Audio-1" class="headerlink" title="Vision + Audio"></a>Vision + Audio</h3><p><strong>Music Generation from Vision.</strong></p>
+<p>任务目标：从视觉数据（视频）中生成音乐。</p>
+<p>方法：符号音乐表示，通过预定义的合成器解码回原始音频波形，该合成器没有引入额外的噪声，从而持久化生成的音乐的高质量。</p>
+<p>基于符号表示的作品的计算成本通常低于纯基于学习的方法，但在在音乐多样性和灵活性方面受到限制。</p>
+<p>大多数基于交叉熵损失形式的地面实况 MIDI 注释进行训练的。</p>
+<p><strong>Speech Generation from Videos.</strong></p>
+<p>任务目标：从人类说话的视频中合成音频。</p>
+<p>说话很大程度上依赖于说话时嘴唇的运动 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="3.706ex" height="1.181ex" role="img" focusable="false" viewBox="0 -511 1638 522"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="27F6" d="M84 237T84 250T98 270H1444Q1328 357 1301 493Q1301 494 1301 496T1300 499Q1300 511 1317 511H1320Q1329 511 1332 510T1338 506T1341 497T1344 481T1352 456Q1374 389 1425 336T1544 261Q1553 258 1553 250Q1553 244 1548 241T1524 231T1486 212Q1445 186 1415 152T1370 85T1349 35T1341 4Q1339 -6 1336 -8T1320 -11Q1300 -11 1300 0Q1300 7 1305 25Q1337 151 1444 230H98Q84 237 84 250Z"></path></g></g></g></svg></mjx-container> 专注于从视频输入中读取和解释视觉嘴唇运动，然后将其转换为音频波形。</p>
+<p>尽管以视频音频生成为主题，但这一领域大部分作品都更关注视频中的动作，而非原始视频。</p>
+<p><strong>Ambient Sound Generation from Videos.</strong></p>
+<p>任务目标：寻求从自然视频中生成声音。</p>
+<p>任务需求：数据对齐 – 生成的声音与视觉背景之间的对齐，这包括语义和时间对齐。</p>
+<p><strong>Visual Generation from Sound.</strong></p>
+<p>任务目标：仅从音频模态直接生成像素级的自然图像或视频。</p>
+<p>ex. 从语音音频合成说话人面孔。</p>
+<p>与 Speech Generation 相同，强调视频片段中嘴唇的运动。</p>
+<h3 id="Vision-Text-1"><a href="#Vision-Text-1" class="headerlink" title="Vision + Text"></a>Vision + Text</h3><p><strong>Dialog Generation from Vision.</strong></p>
+<p>任务目标：旨在生成给定视觉数据的语言文本描述。</p>
+<p>常用方法：编码器-解码器框架流水线 + 注意力机制。</p>
+<p><strong>Dialog Generation from Vision.</strong></p>
+<p>任务目标：侧重于对话文本，而不是简单的描述。分为视觉问答和视觉对话。</p>
+<ul>
+<li>视觉问答：回答与视觉输入相关的单个问题。</li>
+<li>视觉对话：希望通过内部逻辑保持多轮问答交互。</li>
+</ul>
+<p><strong>Image Synthesis from Text.</strong></p>
+<p>任务目标：寻求从给定的文本条件生成图像数据的反向。</p>
+<p>难点：觉数据通常在上下文中更丰富，对像素级合成的要求很高。</p>
+<p><strong>Text-Guided Image Editing.</strong></p>
+<p>任务目标：基于文本提示对给定的原始图像进行编辑。实现目标编辑效果，并保留给定图像的剩余特征。</p>
+<p><strong>Video Synthesis from Text.</strong></p>
+<p>任务目标：根据文本信息生成视频。</p>
+<p>难点：视频通常由多个在时间和空间上相关的连续帧组成，此外还有单个视觉帧的像素级计算扩展合成。</p>
+<h2 id="Further-Discussion"><a href="#Further-Discussion" class="headerlink" title="Further Discussion"></a>Further Discussion</h2><h3 id="Insights-from-Data-and-Methodology-Design"><a href="#Insights-from-Data-and-Methodology-Design" class="headerlink" title="Insights from Data and Methodology Design"></a>Insights from Data and Methodology Design</h3><p>本文从数据的角度理解多模态学学习。</p>
+<p>从两个方面审视数据性质和方法设计的相关性。</p>
+<ul>
+<li>数据模态的语义</li>
+<li>数据模态的格式</li>
+</ul>
+<p><strong>NLP</strong></p>
+<p>文本数据的高度处理性质及其一致的问题表述为大规模基础模型的开发铺平了道路。</p>
+<p><strong>CV</strong></p>
+<p>面临着不同的挑战。视觉数据作为原始信息源，需要广泛的表示学习和特定的下游应用阶段来获得有效和经过处理的视觉表示。视觉数据的复杂性和视觉任务的多样性使得开发一个可以全面应用的统一基础模型变得更加具有挑战性。</p>
+<blockquote>
+<p>方案：探索新的表征学习技术和特定任务的方法，以解决视觉数据的复杂性，并在复杂的视觉任务中实现最先进的性能。</p>
+</blockquote>
+<p><strong>Audio</strong></p>
+<p>研究人员正在根据特定的音频类型和特定的任务要求跟踪 NLP &amp; CV 的发展。</p>
+<h3 id="Future-Directions-and-Challenge"><a href="#Future-Directions-and-Challenge" class="headerlink" title="Future Directions and Challenge"></a>Future Directions and Challenge</h3><p>现有的工作大多数遵循通用的流水线，该流水线包含单独的数据编码器、跨模态注意力特征融合，以及为各种任务目标设计的解码器模块。难以推陈出新。</p>
+<p>需求：</p>
+<ul>
+<li>研究界正在寻求建立一个统一而通用的模型，可以有效地学习所有感兴趣的模式的表示。</li>
+<li>随着对我们日常生活中更细粒度的详细应用的需求不断增加，我们还希望开发和实现更具体和更精心设计的任务更好的性能。</li>
+</ul>
+<p>可能的未来方向：</p>
+<p>人工干预最终的多模态感知人工智能系统。多模态学习的最终目标是将人类智能带给机器，因此人类干预可能是指导这一快速发展领域总体研究方向的关键部分。让人类对跨模态生成和几个下游任务提供更多的控制。</p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><p>本文从数据特征的独特角度对多模态学习领域进行了调查。主要分析视觉、音频和文本的不同数据模式的内在性质。</p>
+<p>接着，本文介绍多模态表示学习，主要通过其学习设置进行分类。</p>
+<p>之后，本文从判别和生成性质中引入了具体的任务应用，每个应用都以“Vision + X”的形式构造成具有特定数据组合的子类。</p>
+<p>对于判别任务，在呈现特定任务工作后，提供分析来弥合现有技术设计及其与不同模式的数据性质的联系。</p>
+<p>对于生成任务，本文在深入研究详细的任务解释之前引入了流行的生成主干模型。</p>
+<p>最后，本文根据多模态学习领域的挑战和未来方向提供讨论。</p>
+<h2 id="我的总结"><a href="#我的总结" class="headerlink" title="我的总结"></a>我的总结</h2><p>我对多模态学习的兴趣源自主题为 AGI 的一场专家讲座，我深受人工智能大一统理论的吸引，并立志在探索这个大一统理论的过程中作出自己的贡献。</p>
+<p>人工智能的大一统理论旨在建立一个统一的智能算法框架，使其能够通用的解决所有人类任务。既然人类以多感官感知世界并与之交互，如果这样的算法存在，那么它一定是多模态的。我相信：发展多模态学习是通向 AGI 的必经之路。</p>
+<p>以上只是我个人的一些琐碎小事，乘着读这篇多模态综述的机会记录一下。</p>
+<p>回归正题，这篇文章介绍了常见模态信息的内在性质和存在形式，并以不同的模态融合作为分类标准介绍了当前多模态机器学习领域的常见方向及应用，是一篇很好的多模态学习入门文章，通过这篇文章，我大概了解了目前多模态学习的发展情况和应用情况，为日后开展对具体应用领域的论文阅读奠定了良好基础。</p>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                【Vision + X】多模态学习综述论文阅读
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2024/10/07/about-multimodality/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    Author
+                </div>
+                <div class="content">Daisy</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    Published
+                </div>
+                <div class="content">2024-10-07 16:23</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    License
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="Copy copyright info" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">多模态</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="Share to WeChat"
+            data-tooltip-img-tip="Scan by WeChat"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="Share to WeiBo"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/10/14/weekly-summary-1/"
+                                   title="周总结（一）| 2024.10.07 - 2024.10.13"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">周总结（一）| 2024.10.07 - 2024.10.13</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/10/07/cmakelist/"
+                                   title="CMake浅析"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">CMake浅析</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data"><span class="nav-text">Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision"><span class="nav-text">Vision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Audio"><span class="nav-text">Audio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Music"><span class="nav-text">Music.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Text"><span class="nav-text">Text.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Modalities"><span class="nav-text">Other Modalities</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multimodal-Presentation-learning"><span class="nav-text">Multimodal Presentation learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Network-Architectures"><span class="nav-text">Network Architectures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Supervised-Learning"><span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-supervised-Learning"><span class="nav-text">Non-supervised Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trend-in-Representation-Learning"><span class="nav-text">Trend in Representation Learning.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Discriminative-Applications"><span class="nav-text">Discriminative Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision-Audio"><span class="nav-text">Vision + Audio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision-Text"><span class="nav-text">Vision + Text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision-Audio-Text"><span class="nav-text">Vision + Audio + Text</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generative-Applications"><span class="nav-text">Generative Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gererative-Networks"><span class="nav-text">Gererative Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision-Audio-1"><span class="nav-text">Vision + Audio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision-Text-1"><span class="nav-text">Vision + Text</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Further-Discussion"><span class="nav-text">Further Discussion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Insights-from-Data-and-Methodology-Design"><span class="nav-text">Insights from Data and Methodology Design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Future-Directions-and-Challenge"><span class="nav-text">Future Directions and Challenge</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusions"><span class="nav-text">Conclusions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%BB%E7%BB%93"><span class="nav-text">我的总结</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2024</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Daisy</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data"><span class="nav-text">Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision"><span class="nav-text">Vision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Audio"><span class="nav-text">Audio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Music"><span class="nav-text">Music.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Text"><span class="nav-text">Text.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Modalities"><span class="nav-text">Other Modalities</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multimodal-Presentation-learning"><span class="nav-text">Multimodal Presentation learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Network-Architectures"><span class="nav-text">Network Architectures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Supervised-Learning"><span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-supervised-Learning"><span class="nav-text">Non-supervised Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trend-in-Representation-Learning"><span class="nav-text">Trend in Representation Learning.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Discriminative-Applications"><span class="nav-text">Discriminative Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision-Audio"><span class="nav-text">Vision + Audio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision-Text"><span class="nav-text">Vision + Text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision-Audio-Text"><span class="nav-text">Vision + Audio + Text</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generative-Applications"><span class="nav-text">Generative Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gererative-Networks"><span class="nav-text">Gererative Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision-Audio-1"><span class="nav-text">Vision + Audio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vision-Text-1"><span class="nav-text">Vision + Text</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Further-Discussion"><span class="nav-text">Further Discussion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Insights-from-Data-and-Methodology-Design"><span class="nav-text">Insights from Data and Methodology Design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Future-Directions-and-Challenge"><span class="nav-text">Future Directions and Challenge</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusions"><span class="nav-text">Conclusions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%BB%E7%BB%93"><span class="nav-text">我的总结</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/header-shrink.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/back2top.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/toggle-theme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/code-block.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/libs/anime.min.js"></script>
+
+<!-- local search -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/local-search.min.js"></script>
+
+
+<!-- lazyload -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/lazyload.min.js"></script>
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/post/post-helper.min.js"></script>
+
+        <!-- toc -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/post/toc.min.js"></script>
+        
+
+        <!-- copyright-info -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/post/copyright-info.min.js"></script>
+        
+
+        <!-- share -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/post/share.min.js"></script>
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.3/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>
