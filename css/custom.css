@@ -1,0 +1,10 @@
+/* your-hexo/source/css/custom.css */
+
+:root {
+    --base-font-family: 'LXGW Wenkai Screen';
+    --base-font-size: 17px;
+    --header-title-font-family: 'Times New Roman';
+    --first-screen-font-family: 'LXGW Wenkai Screen';
+    --first-screen-font-size: 40px;
+    --post-img-align: 0 auto;
+}
