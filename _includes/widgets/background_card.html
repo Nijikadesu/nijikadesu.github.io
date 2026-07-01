@@ -1,0 +1,61 @@
+<div class="my-3 bg-white shadow-sm rounded-xl">
+    <h6 class="p-3 mb-0 border-bottom border-gray"><i class="fas fa-id-card"></i> Background</h6>
+    <div class="p-3">
+        {% if site.data.profile.education %}
+        <section class="background-section">
+            <h6 class="mb-2">Education</h6>
+            <div class="background-timeline">
+                {% for item in site.data.profile.education %}
+                <div class="background-entry">
+                    <div class="background-main">
+                        <span>{{ item.name }}</span>
+                        <span class="background-date text-muted no-break"><em>{{ item.date }}</em></span>
+                    </div>
+                    {% if item.position %}
+                    <div class="small text-muted">{{ item.position }}</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {% if site.data.experience %}
+        <section class="background-section">
+            <h6 class="mb-2">Experience</h6>
+            <div class="background-timeline">
+                {% for item in site.data.experience %}
+                <div class="background-entry">
+                    <div class="background-main">
+                        <span>{{ item.company }}</span>
+                        <span class="background-date text-muted no-break"><em>{{ item.date }}</em></span>
+                    </div>
+                    <div class="small text-muted">{{ item.position }}</div>
+                    {% if item.topics %}
+                    <div class="small text-muted mt-1">
+                        {% for topic in item.topics %}
+                        <span class="mr-2"><span class="font-weight-bold">{{ topic.name }}:</span> {{ topic.description }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {% if site.data.profile.awards %}
+        <section class="background-section mb-0">
+            <h6 class="mb-2">Honors & Awards</h6>
+            <div class="small">
+                {% for item in site.data.profile.awards %}
+                <div class="background-award">
+                    <span>{{ item.name }}</span>
+                    <span class="background-date text-muted no-break"><em>{{ item.date }}</em></span>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+    </div>
+</div>

@@ -10,6 +10,10 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 700;
 }
 
+h6 > i.fas:first-child {
+    margin-right: 0.35rem;
+}
+
 .card {
     border-radius: 0.8rem!important;
 }
@@ -62,6 +66,104 @@ h1, h2, h3, h4, h5, h6,
 .cover-image {
     width: 180px;
     max-height: 120px;
+}
+
+.publication-cover {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+.news-list {
+    max-height: 13rem;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+.news-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.news-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.18);
+    border-radius: 999px;
+}
+
+.news-list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.background-section {
+    margin-bottom: 1rem;
+}
+
+.background-timeline {
+    border-left: 2px solid rgba(0, 0, 0, 0.08);
+    margin-left: 1.75rem;
+    padding-left: 1.05rem;
+}
+
+.background-entry {
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+
+.background-entry:last-child {
+    margin-bottom: 0;
+}
+
+.background-entry::before {
+    position: absolute;
+    left: -1.33rem;
+    top: 0.45rem;
+    width: 0.45rem;
+    height: 0.45rem;
+    content: "";
+    background-color: #6c757d;
+    border-radius: 50%;
+}
+
+.background-main,
+.background-award {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: space-between;
+}
+
+.background-main > :first-child,
+.background-award > :first-child {
+    min-width: 0;
+}
+
+.background-date {
+    font-size: 0.82rem;
+}
+
+.background-award {
+    position: relative;
+    padding-left: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.background-award:last-child {
+    margin-bottom: 0;
+}
+
+.background-award::before {
+    position: absolute;
+    left: 0;
+    top: 0.58rem;
+    width: 0.32rem;
+    height: 0.32rem;
+    content: "";
+    background-color: #6c757d;
+    border-radius: 50%;
+}
+
+@media (max-width: 575.98px) {
+    .background-main,
+    .background-award {
+        display: block;
+    }
 }
 
 .abstract-body {

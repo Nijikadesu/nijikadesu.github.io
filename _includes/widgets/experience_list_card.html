@@ -1,0 +1,31 @@
+<div class="my-3 p-0 bg-white shadow-sm rounded-xl">
+    <h6 class="border-bottom border-gray p-3 mb-0">
+        <i class="fas fa-briefcase"></i> Experience
+    </h6>
+    <div class="px-3 py-1">
+        {% for item in site.data.experience %}
+        <div class="media py-2 {% unless forloop.last %}border-bottom{% endunless %} border-gray">
+            {% if item.logo %}
+            <img src="{{ item.logo | relative_url }}" alt="{{ item.company }}" class="mr-2 mt-1 rounded-sm" style="width: 28px; max-height: 28px; object-fit: contain;">
+            {% endif %}
+            <div class="media-body">
+                <div class="d-flex flex-wrap align-items-baseline">
+                    <div class="mt-0 mb-0 font-weight-normal mr-2">{{ item.company }}</div>
+                    <div class="ml-auto small text-muted no-break"><em>{{ item.date }}</em></div>
+                </div>
+                <div class="small mb-1">{{ item.position }}</div>
+                {% if item.topics %}
+                <ul class="list-unstyled small mb-0 pl-2">
+                    {% for topic in item.topics %}
+                    <li class="{% unless forloop.last %}mb-1{% endunless %} text-muted">
+                        <span class="font-weight-bold">{{ topic.name }}:</span>
+                        <span>{{ topic.description }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
