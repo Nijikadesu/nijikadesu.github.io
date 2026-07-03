@@ -30,7 +30,7 @@ exclude:
   - vendor/
   - .bundle/
 
-# timezone: Asia/Shanghai
+timezone: Asia/Shanghai
 
 collections:
   - publications
