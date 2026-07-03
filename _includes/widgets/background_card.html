@@ -3,16 +3,18 @@
     <div class="p-3">
         {% if site.data.profile.education %}
         <section class="background-section">
-            <h6 class="mb-2">Education</h6>
+            <h6 class="background-subtitle mb-2">Education</h6>
             <div class="background-timeline">
                 {% for item in site.data.profile.education %}
                 <div class="background-entry">
                     <div class="background-main">
-                        <span>{{ item.name }}</span>
+                        <span class="background-title">{{ item.name }}</span>
+                        {% if item.date and item.date != "" %}
                         <span class="background-date text-muted no-break"><em>{{ item.date }}</em></span>
+                        {% endif %}
                     </div>
                     {% if item.position %}
-                    <div class="small text-muted">{{ item.position }}</div>
+                    <div class="background-note text-muted">{{ item.position }}</div>
                     {% endif %}
                 </div>
                 {% endfor %}
@@ -20,19 +22,21 @@
         </section>
         {% endif %}
 
-        {% if site.data.experience %}
+        {% if site.data.profile.experience %}
         <section class="background-section">
-            <h6 class="mb-2">Experience</h6>
+            <h6 class="background-subtitle mb-2">Experience</h6>
             <div class="background-timeline">
-                {% for item in site.data.experience %}
+                {% for item in site.data.profile.experience %}
                 <div class="background-entry">
                     <div class="background-main">
-                        <span>{{ item.company }}</span>
+                        <span class="background-title">{{ item.company }}</span>
+                        {% if item.date and item.date != "" %}
                         <span class="background-date text-muted no-break"><em>{{ item.date }}</em></span>
+                        {% endif %}
                     </div>
-                    <div class="small text-muted">{{ item.position }}</div>
+                    <div class="background-note text-muted">{{ item.position }}</div>
                     {% if item.topics %}
-                    <div class="small text-muted mt-1">
+                    <div class="background-note text-muted mt-1">
                         {% for topic in item.topics %}
                         <span class="mr-2"><span class="font-weight-bold">{{ topic.name }}:</span> {{ topic.description }}</span>
                         {% endfor %}
@@ -46,12 +50,14 @@
 
         {% if site.data.profile.awards %}
         <section class="background-section mb-0">
-            <h6 class="mb-2">Honors & Awards</h6>
-            <div class="small">
+            <h6 class="background-subtitle mb-2">Honors & Awards</h6>
+            <div class="background-note">
                 {% for item in site.data.profile.awards %}
                 <div class="background-award">
                     <span>{{ item.name }}</span>
+                    {% if item.date and item.date != "" %}
                     <span class="background-date text-muted no-break"><em>{{ item.date }}</em></span>
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>

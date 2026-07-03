@@ -3,7 +3,7 @@
         <i class="fas fa-briefcase"></i> Experience
     </h6>
     <div class="px-3 py-1">
-        {% for item in site.data.experience %}
+        {% for item in site.data.profile.experience %}
         <div class="media py-2 {% unless forloop.last %}border-bottom{% endunless %} border-gray">
             {% if item.logo %}
             <img src="{{ item.logo | relative_url }}" alt="{{ item.company }}" class="mr-2 mt-1 rounded-sm" style="width: 28px; max-height: 28px; object-fit: contain;">

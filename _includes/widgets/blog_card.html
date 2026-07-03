@@ -3,15 +3,15 @@
 {% assign first = include.first %}
 {% assign last = include.last %}
 
-<div class="border-bottom border-gray p-3 {% if hide_bottom_border %}border-0{% endif %}">
+<div class="blog-list-item border-bottom border-gray p-3 {% if hide_bottom_border %}border-0{% endif %}">
     <div class="row">
         <div class="col-12">
-            <h5 class="mb-2">
-                <a href="{{ item.url | relative_url }}" class="text-dark text-decoration-none">
+            <h5 class="blog-list-title mb-2">
+                <a href="{{ item.url | relative_url }}">
                     {{ item.title }}
                 </a>
             </h5>
-            <div class="text-muted small mb-2">
+            <div class="blog-list-meta text-muted small mb-2">
                 <i class="fas fa-calendar-alt"></i> {{ item.date | date: "%B %d, %Y" }}
                 {% if item.tags %}
                     <span class="ml-3">
@@ -22,14 +22,14 @@
                     </span>
                 {% endif %}
             </div>
-            <div class="text-muted small">
+            <div class="blog-list-excerpt text-muted small">
                 {% if item.excerpt %}
                     {{ item.excerpt | strip_html | truncate: 500 }}
                 {% else %}
                     {{ item.content | strip_html | truncate: 500 }}
                 {% endif %} 
             </div>
-            <div class="mt-2">
+            <div class="blog-list-link mt-2">
                 <a href="{{ item.url | relative_url }}">
                     Read more <i class="fas fa-angle-double-right"></i>
                 </a>

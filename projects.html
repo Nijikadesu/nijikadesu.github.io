@@ -11,7 +11,7 @@ body_attr: >-
 <div class="row">
     <div class="col-12 col-lg-10">
         {% for year in projects_by_year %}
-        <h2 class="pt-4" id="year-{{ year.name }}">{{ year.name }}</h2>
+        <h2 class="archive-year-title" id="year-{{ year.name }}">{{ year.name }}</h2>
         <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
             {% for item in year.items %}
                 {% include widgets/project_item.html item=item hide_bottom_border=forloop.last first=forloop.first last=forloop.last %}

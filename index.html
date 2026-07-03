@@ -24,7 +24,18 @@ navbar_title: Home
         {% endif %}
 
         {% if site.data.display.homepage.show_selected_publications %}
+        {% assign selected_pub_ids = site.data.display.homepage.selected_publications %}
+        {% if selected_pub_ids %}
+        {% assign pubs = "" | split: "" %}
+        {% for pub_id in selected_pub_ids %}
+            {% assign matched_pubs = site.publications | where: "pub_id", pub_id %}
+            {% for pub in matched_pubs %}
+                {% assign pubs = pubs | push: pub %}
+            {% endfor %}
+        {% endfor %}
+        {% else %}
         {% assign pubs = site.publications | sort: "date" | reverse | where: "selected", true %}
+        {% endif %}
         {%
         include widgets/publication_card.html
         publications=pubs
@@ -33,7 +44,18 @@ navbar_title: Home
         {% endif %}
 
         {% if site.data.display.homepage.show_selected_projects %}
+        {% assign selected_project_ids = site.data.display.homepage.selected_projects %}
+        {% if selected_project_ids %}
+        {% assign projects = "" | split: "" %}
+        {% for project_id in selected_project_ids %}
+            {% assign matched_projects = site.projects | where: "project_id", project_id %}
+            {% for project in matched_projects %}
+                {% assign projects = projects | push: project %}
+            {% endfor %}
+        {% endfor %}
+        {% else %}
         {% assign projects = site.projects | sort: "date" | reverse | where: "selected", true %}
+        {% endif %}
         {%
         include widgets/project_card.html
         projects=projects

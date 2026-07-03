@@ -1,4 +1,5 @@
 {% assign item = include.item %}
+{% assign tldr_id = item.id | slugify | prepend: "project-tldr-" %}
 <div class="d-none d-md-block">
     <div class="row no-gutters {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray">
         <div class="col-md-4 col-lg-3 mb-md-0 p-md-3">
@@ -9,20 +10,26 @@
             {%- endif -%}
         </div>
         <div class="col-md-8 col-lg-9 p-3 pl-md-0">
-            <h5 class="mt-0 mb-1 font-weight-normal">{{ item.title }}</h5>
+            <h5 class="project-item-title mt-0 mb-1">{{ item.title }}</h5>
             {% if item.role or item.period %}
             <p class="mt-0 mb-0 small">
                 {% if item.role %}{{ item.role }}{% endif %}
                 {% if item.role and item.period %} · {% endif %}
                 {% if item.period %}<span class="text-muted">{{ item.period }}</span>{% endif %}
+                {% if item.stars %}
+                {% if item.role or item.period %} · {% endif %}
+                <span class="text-muted"><i class="fas fa-star"></i> {{ item.stars }} stars</span>
+                {% endif %}
             </p>
             {% endif %}
             {% if item.tech %}
             <p class="mt-0 mb-0 small"><i>{{ item.tech }}</i></p>
             {% endif %}
-            <p class="mt-0 mb-0 small text-muted">{{ item.description }}</p>
 
             <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
+                {% if item.description %}
+                <a data-toggle="collapse" href="#{{ tldr_id }}-desktop" role="button" aria-expanded="false" aria-controls="{{ tldr_id }}-desktop">[TL;DR]</a>
+                {% endif %}
                 {% for link in item.links %}
                 {% if link[1].url %}
                 <a target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}">[{{ link[0] }}]</a>
@@ -31,6 +38,11 @@
                 {% endif %}
                 {% endfor %}
             </p>
+            {% if item.description %}
+            <div class="collapse" id="{{ tldr_id }}-desktop">
+                <p class="mt-1 mb-0 small text-muted">{{ item.description }}</p>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -40,20 +52,26 @@
         <div class="d-flex align-items-start flex-column py-3 px-4">
             <div class="mb-auto"></div>
             <div>
-                <h5 class="mt-0 mb-1 font-weight-normal">{{ item.title }}</h5>
+                <h5 class="project-item-title mt-0 mb-1">{{ item.title }}</h5>
                 {% if item.role or item.period %}
                 <p class="mt-0 mb-0 small">
                     {% if item.role %}{{ item.role }}{% endif %}
                     {% if item.role and item.period %} · {% endif %}
                     {% if item.period %}<span class="text-muted">{{ item.period }}</span>{% endif %}
+                    {% if item.stars %}
+                    {% if item.role or item.period %} · {% endif %}
+                    <span class="text-muted"><i class="fas fa-star"></i> {{ item.stars }} stars</span>
+                    {% endif %}
                 </p>
                 {% endif %}
                 {% if item.tech %}
                 <p class="mt-0 mb-0 small"><i>{{ item.tech }}</i></p>
                 {% endif %}
-                <p class="mt-0 mb-0 small text-muted">{{ item.description }}</p>
 
                 <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
+                    {% if item.description %}
+                    <a data-toggle="collapse" href="#{{ tldr_id }}-mobile" role="button" aria-expanded="false" aria-controls="{{ tldr_id }}-mobile">[TL;DR]</a>
+                    {% endif %}
                     {% for link in item.links %}
                     {% if link[1].url %}
                     <a target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}">[{{ link[0] }}]</a>
@@ -62,6 +80,11 @@
                     {% endif %}
                     {% endfor %}
                 </p>
+                {% if item.description %}
+                <div class="collapse" id="{{ tldr_id }}-mobile">
+                    <p class="mt-1 mb-0 small text-muted">{{ item.description }}</p>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

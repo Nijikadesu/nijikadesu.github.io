@@ -1,61 +1,74 @@
-primary_name: "Your Name"
+primary_name: "Mingkun Chang"
 secondary_name: ""
-navbar_name: "Your Name"
+navbar_name: "Mingkun Chang（常鸣坤）"
 
 positions:
-- name: Title or Position
-- name: Affiliation Name
-  logo: /assets/images/badges/MIT_Social_circle.png  # Logo is optional
+- name: M.E. Student
+- name: Sun Yat-sen University
 
 
-email: "your@email.com"
-# cv_link: link-to-your-cv-file
-gscholar: xFmQpf4AAAAJ  # This is an example, replace it with your own Google Scholar ID
-github: your_github_id
-twitter: your_twitter_id  # Do not include the '@' symbol
-# wechat_qrcode: /assets/images/etc/wechat.jpg
-# wechat_prompt: >-
-#   Please tell me your <strong>name</strong> and <strong>affiliation</strong> (current or past) when adding my wechat. Thanks!
-# linkedin: your-linked-in-id
+email: "mingkun502@gmail.com"
+location: "Shenzhen, China"
+# cv_link: "nijikadesu.github.io/cv"
+gscholar: 2tq0mTwAAAAJ
+github: Nijikadesu
+# twitter: your_twitter_id  # Do not include the '@' symbol
+wechat_qrcode: /assets/images/etc/wechat.png
+wechat_prompt: >-
+  I welcome conversations and collaborations. Feel free to add me if you would like to exchange ideas or explore possible collaborations.
+linkedin: mingkunchang
 # orcid: 0000-0000-0000-0000
 
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    A <a href="https://en.wikipedia.org/wiki/Bicolor_cat" target="_blank">bicolor cat</a> is a cat with white fur combined with fur of some other colour, for example solid black, tabby, or colourpointed.
+    I am an incoming master's student at <a href="https://www.sysu-hcp.net/" target="_blank">HCP Lab</a>, Sun Yat-sen University, advised by Prof. <a href="https://guanbinli.com/" target="_blank">Guanbin Li</a>. Previously, I received my B.Eng. in Artificial Intelligence from Xidian University, and spent a memorable three months at Westlake University, where I was fortunate to work with Prof. <a href="https://scholar.google.com/citations?user=HmylMfcAAAAJ&hl=en" target="_blank">Yandong Wen</a>.
   </p>
   <p>
-    There are various patterns of a bicolour cat. These range from the Van-patterned (colour on the crown of the head 
-    and the tail only) to a solid colour with a throat locket or medallion. Bicolour coats are found in many cat breeds, 
-    as well as being common in domestic longhair and domestic shorthair cats.
+    My research interests lie in <strong>video generation</strong> and <strong>world models</strong>. I am especially interested in:
+  </p>
+  <ul>
+    <li><em>Generative reasoning</em> : understanding the internal reasoning mechanisms of video models and large language models, and exploring how such abilities may generalize.</li>
+    <li><em>Physical intelligence</em> : exploring how models can learn physical dynamics, spatial-temporal interactions, and actionable representations from real world data and simulation.</li>
+  </ul>
+  <p>
+    I am still exploring these fields and always happy to learn from different perspectives. Please feel free to reach out if you would like to exchange ideas, discuss research, or explore possible collaborations.
   </p>
 
-portrait_url: /assets/images/photos/portrait.jpg
+portrait_url: /assets/images/photos/cmk.jpg
 portrait_caption: >-
-  Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
+  Mingkun at the east gate of XDU, Xi'an, Shaanxi.
 
 education:
-- name: Massachusetts Institute of Technology
-  logo: /assets/images/badges/MIT_Social_circle.png
-  position: >- 
-    Department of Electrical Engineering and Computer Science <br/>
-    Ph.D. Student
-  date: Sep. 2024 - present
-- name: Peking University
-  logo: /assets/images/badges/PKU_red.png
-  position: B.S. in Computer Science
-  date: Sep. 2019 - Jul. 2021
+- name: Sun Yat-sen University
+  position: >-
+    School of Computer Science and Engineering <br/>
+    M.E. Student
+  date: 2026 - present
+- name: Xidian University
+  position: B.Eng. in Artificial Intelligence
+  date: 2022 - 2026
 
-# experience:
-# - name: Peking University
-#   logo: /assets/images/badges/PKU_red.png
-#   position: Research Intern
-#   date: Sep. 2019 - Jul. 2021
+experience:
+- company: <a href="https://www.huawei.com/en/giv/intelligent-automotive-solution-2030" target="_blank">Intelligent Automotive Solution</a>, Huawei
+  logo: 
+  position: University-Industry Collaboration Intern
+  date: 2025.12 - 2026.9
+  topics:
+  - name: Topic
+    description: Video Generation Models, Autonomous Driving Data Synthesis.
+- company: <a href="https://en.westlake.edu.cn/faculty/yandong-wen.html" target="_blank">Computational Learning and Reasoning Lab</a>, Westlake University
+  logo: 
+  position: Visiting Student with Prof. <a href="https://scholar.google.com/citations?user=HmylMfcAAAAJ&hl=en" target="_blank">Yandong Wen</a>
+  date: 2025.6 - 2025.12
+  topics:
+  - name: Topic
+    description: LLMs Math Reasoning, Reinforcement Learning.
 
 awards:
-- name: Award Name 2
+- name: First-Class Academic Scholarship, Sun Yat-sen University
+  date: 2026
+- name: Meritorious Winner, Interdisciplinary Contest In Modeling.
   date: 2024
-- name: Award Name 1 
-  date: 2021
-- name: A quick brown fox jumps over the lazy dog and runs away award
-  date: 2021
+- name: Second Prize (Provincial Level), Mathematics Competition of Chinese College Students
+  date: 2023

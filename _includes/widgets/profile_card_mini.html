@@ -1,6 +1,6 @@
 <div class="row sticky-top" style="top: 80px">
     <div class="col">
-        <div class="card border-0 shadow-sm bg-white">
+        <div class="card border-0 shadow-sm bg-white profile-mini-card">
             <div class="card-body px-4 pt-4 pb-3">
                 <div class="row">
                     <div class="col">
@@ -33,6 +33,15 @@
                         {% endfor %}
                     </div>
                 </div>
+
+                {% if site.data.profile.location %}
+                <div class="row small pt-1">
+                    <div class="col text-center text-muted profile-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>{{ site.data.profile.location }}</span>
+                    </div>
+                </div>
+                {% endif %}
 
                 <div class="row small">
                     <div class="col text-center">
@@ -94,18 +103,21 @@
 
 {% if site.data.profile.wechat_qrcode %}
 <div class="modal fade" id="modal-wechat" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-body p-0">
-                <img src="{{ site.data.profile.wechat_qrcode | relative_url }}" class="img-fluid">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-body p-3 text-center">
+                <div class="wechat-modal-title">
+                    <i class="fab fa-weixin"></i> WeChat
+                </div>
+                <img src="{{ site.data.profile.wechat_qrcode | relative_url }}" class="img-fluid wechat-qrcode" alt="WeChat QR code">
+                {% if site.data.profile.wechat_prompt %}
+                <div class="wechat-prompt mt-3">
+                    {{ site.data.profile.wechat_prompt }}
+                </div>
+                {% endif %}
             </div>
-            {% if site.data.profile.wechat_prompt %}
-            <div class="modal-body p-1">
-                {{ site.data.profile.wechat_prompt }}
-            </div>
-            {% endif %}
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            <div class="modal-footer justify-content-center border-0 pt-0 pb-3">
+                <button type="button" class="btn btn-sm btn-outline-secondary px-4" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

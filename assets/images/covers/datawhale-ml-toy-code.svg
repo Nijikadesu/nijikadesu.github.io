@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Machine Learning Toy Code</title>
+  <desc id="desc">A Datawhale open-source learning project cover.</desc>
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <rect x="44" y="44" width="1112" height="712" rx="38" fill="#f7f9fb" stroke="#e5ebf0" stroke-width="2"/>
+  <circle cx="600" cy="278" r="138" fill="#eef6ff"/>
+  <image href="datawhale-logo.png" x="480" y="158" width="240" height="240" preserveAspectRatio="xMidYMid meet"/>
+  <text x="600" y="500" text-anchor="middle" font-family="Lato, Arial, sans-serif" font-size="64" font-weight="600" fill="#23272a">Machine Learning Toy Code</text>
+  <text x="600" y="562" text-anchor="middle" font-family="Lato, Arial, sans-serif" font-size="34" font-weight="400" fill="#687076">Datawhale Open-Source Learning Project</text>
+  <g fill="none" stroke="#d8e5ee" stroke-width="3">
+    <rect x="310" y="635" width="92" height="36" rx="18"/>
+    <rect x="426" y="635" width="116" height="36" rx="18"/>
+    <rect x="566" y="635" width="88" height="36" rx="18"/>
+    <rect x="678" y="635" width="150" height="36" rx="18"/>
+  </g>
+  <g font-family="Lato, Arial, sans-serif" font-size="20" fill="#6f7f8c" text-anchor="middle">
+    <text x="356" y="659">NumPy</text>
+    <text x="484" y="659">scikit-learn</text>
+    <text x="610" y="659">ML</text>
+    <text x="753" y="659">Toy Code</text>
+  </g>
+</svg>
