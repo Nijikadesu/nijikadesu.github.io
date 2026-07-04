@@ -8,3 +8,5 @@ vendor/
 Gemfile.lock
 
 .DS_Store
+.jekyll-preview.pid
+.jekyll-preview.log
