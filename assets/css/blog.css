@@ -202,18 +202,20 @@ h1, h2, h3, h4, h5, h6,
 .blog-layout-wrapper {
     display: flex;
     justify-content: center;
+    max-width: 1120px;
+    margin: 0 auto;
     padding: 0 15px;
     gap: 1.5rem;
 }
 
 .blog-main {
-    flex: 0 1 950px;
+    flex: 0 1 840px;
     min-width: 0;
 }
 
 .blog-toc-sidebar {
     flex: 0 0 auto;
-    width: clamp(160px, 18vw, 360px);
+    width: clamp(180px, 18vw, 240px);
     display: none;
 }
 

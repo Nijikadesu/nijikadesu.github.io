@@ -9,7 +9,7 @@ body_attr: >-
 {% assign pubs_by_year = site.publications | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
 
 <div class="row">
-    <div class="col-12 col-lg-10">
+    <div class="col-12 col-lg-9">
         <div class="publication-page-legend">
             {% include widgets/publication_legend.html %}
         </div>
@@ -24,7 +24,7 @@ body_attr: >-
         {% endfor %}
     </div>
 
-    <div class="col-2 d-none d-lg-block">
+    <div class="col-3 d-none d-lg-block">
         <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top: 80px">
             {% for year in pubs_by_year %}
             <a class="nav-link d-block" href="#year-{{ year.name }}">{{ year.name }}</a>
