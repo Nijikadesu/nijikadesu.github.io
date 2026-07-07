@@ -198,29 +198,31 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 600;
 }
 
-/* Blog layout — content preserves original width, TOC uses remaining space */
+/* Blog layout follows the same page shell width as the navbar. */
 .blog-layout-wrapper {
-    display: flex;
-    justify-content: center;
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 15px;
+    display: grid;
+    grid-template-columns: minmax(0, 9fr) minmax(180px, 3fr);
     gap: 1.5rem;
+    align-items: start;
 }
 
 .blog-main {
-    flex: 0 1 840px;
     min-width: 0;
 }
 
 .blog-toc-sidebar {
-    flex: 0 0 auto;
-    width: clamp(180px, 18vw, 240px);
+    min-width: 0;
     display: none;
 }
 
 @media (min-width: 992px) {
     .blog-toc-sidebar {
+        display: block;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .blog-layout-wrapper {
         display: block;
     }
 }
