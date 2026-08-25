@@ -12,6 +12,11 @@
     --soft-shadow: 0 1px 4px rgba(22, 28, 34, 0.035);
 }
 
+html {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
@@ -20,6 +25,19 @@ body {
     background-color: var(--page-bg) !important;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+}
+
+body.modal-open {
+    padding-right: 0 !important;
+}
+
+body.modal-open .fixed-top,
+body.modal-open .sticky-top {
+    padding-right: 0 !important;
+}
+
+body.modal-open .modal {
+    padding-right: 0 !important;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -107,22 +125,37 @@ h6 > i.fas:first-child {
     /* font-family: "Raleway"; */
     font-weight: 400;
     color: rgba(35, 39, 42, 0.84);
-    font-size: 0.95rem;
-    line-height: 1.56;
+    font-size: 0.93rem;
+    line-height: 1.52;
 }
 
 .about-card .card-body {
-    padding: 2rem 2.4rem;
+    padding: 1.7rem 2rem;
 }
 
 .about-card .h3 {
-    margin-bottom: 1.2rem;
-    font-size: 1.32rem;
+    margin-bottom: 1rem;
+    font-size: 1.22rem;
+}
+
+.about-connect-note {
+    margin: 0.9rem 0 0;
+    padding: 0.72rem 0.9rem;
+    color: rgba(35, 39, 42, 0.72);
+    font-size: 0.9rem;
+    line-height: 1.48;
+    background-color: rgba(245, 190, 90, 0.08);
+    border-left: 3px solid rgba(190, 133, 43, 0.32);
+    border-radius: 0 0.42rem 0.42rem 0;
 }
 
 .profile-mini-card .card-body {
     padding-right: 1.4rem !important;
     padding-left: 1.4rem !important;
+}
+
+.profile-sticky {
+    top: 5.1rem;
 }
 
 .profile-mini-card .figure {
@@ -138,6 +171,7 @@ h6 > i.fas:first-child {
 }
 
 .navbar {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     background-color: rgba(250, 250, 250, 0.86) !important;
     border-bottom: 1px solid var(--line-faint);
     backdrop-filter: blur(18px);
@@ -149,12 +183,15 @@ h6 > i.fas:first-child {
 }
 
 .navbar-brand strong {
+    display: inline-block;
     font-weight: 600;
+    line-height: 1.25;
 }
 
 .navbar-light .navbar-nav .nav-link {
     color: rgba(35, 39, 42, 0.62);
     font-size: 0.92rem;
+    line-height: 1.25;
 }
 
 .navbar-light .navbar-nav .active > .nav-link,
@@ -166,6 +203,16 @@ h6 > i.fas:first-child {
     border-color: var(--line-soft) !important;
     border-radius: 0.35rem;
     color: rgba(35, 39, 42, 0.72) !important;
+}
+
+.footer {
+    flex-shrink: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    border-color: var(--line-faint) !important;
+}
+
+.footer .row {
+    line-height: 1.35;
 }
 
 .card-body .h3,
@@ -224,6 +271,13 @@ h6 > i.fas:first-child {
     border: 1px solid var(--line-faint);
 }
 
+.entry-highlight {
+    background:
+        linear-gradient(90deg, rgba(245, 190, 90, 0.16), rgba(255, 255, 255, 0) 46%),
+        rgba(250, 250, 250, 0.42);
+    box-shadow: inset 3px 0 0 rgba(190, 133, 43, 0.34);
+}
+
 .publication-item-title,
 .project-item-title,
 .blog-list-title {
@@ -249,6 +303,13 @@ h6 > i.fas:first-child {
 .blog-list-meta,
 .blog-list-excerpt {
     line-height: 1.45;
+}
+
+.blog-list-excerpt {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 .blog-list-meta i {
@@ -330,60 +391,98 @@ h6 > i.fas:first-child {
     background-color: transparent;
 }
 
-.background-section {
-    margin-bottom: 0.95rem;
+.background-stack {
+    margin-top: 1.15rem;
+    margin-bottom: 1.15rem;
 }
 
-.background-subtitle {
-    color: rgba(35, 39, 42, 0.74);
-    font-size: 0.92rem;
+.background-stack .background-card:not(:last-child) {
+    margin-bottom: 1.15rem;
+}
+
+.background-card-heading {
+    padding: 0.85rem 1rem;
+    color: rgba(35, 39, 42, 0.78);
+    font-size: 0.95rem;
     font-weight: 600;
     line-height: 1.35;
 }
 
-.background-timeline {
-    border-left: 1px solid var(--line-soft);
-    margin-left: 1.75rem;
-    padding-left: 1.05rem;
+.background-card-heading > i {
+    margin-right: 0.45rem;
+    color: rgba(35, 39, 42, 0.48);
 }
 
-.background-entry {
-    position: relative;
-    margin-bottom: 0.68rem;
+.background-card-body {
+    padding: 0.85rem 1rem 1rem;
 }
 
-.background-entry:last-child {
-    margin-bottom: 0;
+.background-module-grid {
+    margin-right: -0.4rem;
+    margin-left: -0.4rem;
 }
 
-.background-entry::before {
-    position: absolute;
-    left: -1.28rem;
-    top: 0.5rem;
-    width: 0.36rem;
-    height: 0.36rem;
-    content: "";
-    background-color: #8a9298;
-    border: 2px solid var(--surface);
-    border-radius: 50%;
+.background-module-col {
+    padding-right: 0.4rem;
+    padding-left: 0.4rem;
 }
 
-.background-main,
-.background-award {
+.background-module {
     display: flex;
-    gap: 0.75rem;
-    justify-content: space-between;
-    line-height: 1.38;
+    gap: 0.85rem;
+    height: 100%;
+    padding: 0.85rem;
+    background-color: rgba(250, 250, 250, 0.72);
+    border: 1px solid var(--line-faint);
+    border-radius: 0.5rem;
 }
 
-.background-main > :first-child,
-.background-award > :first-child {
+.background-module-col:nth-child(n + 3) {
+    margin-top: 0.8rem;
+}
+
+.background-logo-wrap {
+    flex: 0 0 auto;
+    width: 2.45rem;
+}
+
+.background-logo-img,
+.background-logo-mark {
+    display: flex;
+    width: 2.1rem;
+    height: 2.1rem;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+    background-color: var(--surface-soft);
+    border: 1px solid var(--line-faint);
+    border-radius: 0.42rem;
+}
+
+.background-logo-mark {
+    color: rgba(35, 39, 42, 0.58);
+    font-family: Source Code Pro, monospace;
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.background-entry-content {
+    flex: 1 1 auto;
     min-width: 0;
+}
+
+.background-entry-main {
+    line-height: 1.38;
 }
 
 .background-date {
     color: rgba(35, 39, 42, 0.46) !important;
     font-size: 0.75rem;
+    line-height: 1.3;
+    margin-top: 0.12rem;
+    margin-bottom: 0.18rem;
+    white-space: normal;
 }
 
 .background-title {
@@ -398,25 +497,31 @@ h6 > i.fas:first-child {
     line-height: 1.42;
 }
 
-.background-award {
-    position: relative;
-    padding-left: 0.9rem;
-    margin-bottom: 0.28rem;
+.background-location {
+    font-size: 0.76rem;
+    line-height: 1.35;
 }
 
-.background-award:last-child {
-    margin-bottom: 0;
+.background-awards-list {
+    margin: 0;
+    padding-left: 1.05rem;
 }
 
-.background-award::before {
-    position: absolute;
-    left: 0;
-    top: 0.58rem;
-    width: 0.32rem;
-    height: 0.32rem;
-    content: "";
-    background-color: #8a9298;
-    border-radius: 50%;
+.background-awards-list li {
+    padding: 0.22rem 0;
+    color: rgba(35, 39, 42, 0.78);
+    font-size: 0.86rem;
+    line-height: 1.45;
+}
+
+.background-award-name {
+    margin-right: 0.4rem;
+}
+
+.background-award-date {
+    color: rgba(35, 39, 42, 0.46);
+    font-size: 0.78rem;
+    white-space: nowrap;
 }
 
 .wechat-modal-title {
@@ -549,9 +654,8 @@ h6 > i.fas:first-child {
 }
 
 @media (max-width: 575.98px) {
-    .background-main,
-    .background-award {
-        display: block;
+    .background-module-col:not(:first-child) {
+        margin-top: 0.75rem;
     }
 
     .publication-card-title,
@@ -607,9 +711,40 @@ div.lazy {
     border-radius: 0.45rem;
 }
 
+.site-container {
+    width: 100%;
+}
+
+.navbar .site-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footer .site-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 @media (min-width: 992px) {
-    .container-lg {
+    .site-container {
         max-width: 1120px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .site-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .navbar .site-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .footer .site-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 

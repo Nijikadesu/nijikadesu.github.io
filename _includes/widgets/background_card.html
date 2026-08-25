@@ -1,67 +1,101 @@
-<div class="my-3 bg-white shadow-sm rounded-xl">
-    <h6 class="p-3 mb-0 border-bottom border-gray"><i class="fas fa-id-card"></i> Background</h6>
-    <div class="p-3">
-        {% if site.data.profile.education %}
-        <section class="background-section">
-            <h6 class="background-subtitle mb-2">Education</h6>
-            <div class="background-timeline">
-                {% for item in site.data.profile.education %}
-                <div class="background-entry">
-                    <div class="background-main">
-                        <span class="background-title">{{ item.name }}</span>
-                        {% if item.date and item.date != "" %}
-                        <span class="background-date text-muted no-break"><em>{{ item.date }}</em></span>
-                        {% endif %}
-                    </div>
-                    {% if item.position %}
-                    <div class="background-note text-muted">{{ item.position }}</div>
-                    {% endif %}
-                </div>
-                {% endfor %}
-            </div>
-        </section>
-        {% endif %}
-
-        {% if site.data.profile.experience %}
-        <section class="background-section">
-            <h6 class="background-subtitle mb-2">Experience</h6>
-            <div class="background-timeline">
+<div class="background-stack">
+    {% if site.data.profile.experience %}
+    <section class="background-card bg-white shadow-sm rounded-xl">
+        <h6 class="background-card-heading border-bottom border-gray mb-0">
+            <i class="fas fa-briefcase"></i> Experience
+        </h6>
+        <div class="background-card-body">
+            <div class="row background-module-grid">
                 {% for item in site.data.profile.experience %}
-                <div class="background-entry">
-                    <div class="background-main">
-                        <span class="background-title">{{ item.company }}</span>
-                        {% if item.date and item.date != "" %}
-                        <span class="background-date text-muted no-break"><em>{{ item.date }}</em></span>
-                        {% endif %}
+                <div class="col-12 col-md-6 background-module-col">
+                    <div class="background-module">
+                        <div class="background-logo-wrap">
+                            {% if item.logo %}
+                            <img src="{{ item.logo | relative_url }}" alt="{{ item.company | strip_html }}" class="background-logo-img">
+                            {% elsif item.logo_text %}
+                            <span class="background-logo-mark">{{ item.logo_text }}</span>
+                            {% else %}
+                            <span class="background-logo-mark">{{ item.company | strip_html | slice: 0, 3 }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="background-entry-content">
+                            <div class="background-entry-main">
+                                <span class="background-title">{{ item.company }}</span>
+                            </div>
+                            {% if item.date and item.date != "" %}
+                            <div class="background-date text-muted"><em>{{ item.date }}</em></div>
+                            {% endif %}
+                            <div class="background-note text-muted">{{ item.position }}</div>
+                            {% if item.location %}
+                            <div class="background-location text-muted">{{ item.location }}</div>
+                            {% endif %}
+                        </div>
                     </div>
-                    <div class="background-note text-muted">{{ item.position }}</div>
-                    {% if item.topics %}
-                    <div class="background-note text-muted mt-1">
-                        {% for topic in item.topics %}
-                        <span class="mr-2"><span class="font-weight-bold">{{ topic.name }}:</span> {{ topic.description }}</span>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
                 </div>
                 {% endfor %}
             </div>
-        </section>
-        {% endif %}
+        </div>
+    </section>
+    {% endif %}
 
-        {% if site.data.profile.awards %}
-        <section class="background-section mb-0">
-            <h6 class="background-subtitle mb-2">Honors & Awards</h6>
-            <div class="background-note">
-                {% for item in site.data.profile.awards %}
-                <div class="background-award">
-                    <span>{{ item.name }}</span>
-                    {% if item.date and item.date != "" %}
-                    <span class="background-date text-muted no-break"><em>{{ item.date }}</em></span>
-                    {% endif %}
+    {% if site.data.profile.education %}
+    <section class="background-card bg-white shadow-sm rounded-xl">
+        <h6 class="background-card-heading border-bottom border-gray mb-0">
+            <i class="fas fa-graduation-cap"></i> Education
+        </h6>
+        <div class="background-card-body">
+            <div class="row background-module-grid">
+                {% for item in site.data.profile.education %}
+                <div class="col-12 col-md-6 background-module-col">
+                    <div class="background-module">
+                        <div class="background-logo-wrap">
+                            {% if item.logo %}
+                            <img src="{{ item.logo | relative_url }}" alt="{{ item.name }}" class="background-logo-img">
+                            {% elsif item.logo_text %}
+                            <span class="background-logo-mark">{{ item.logo_text }}</span>
+                            {% else %}
+                            <span class="background-logo-mark">{{ item.name | slice: 0, 3 }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="background-entry-content">
+                            <div class="background-entry-main">
+                                <span class="background-title">{{ item.name }}</span>
+                            </div>
+                            {% if item.date and item.date != "" %}
+                            <div class="background-date text-muted"><em>{{ item.date }}</em></div>
+                            {% endif %}
+                            {% if item.position %}
+                            <div class="background-note text-muted">{{ item.position }}</div>
+                            {% endif %}
+                            {% if item.location %}
+                            <div class="background-location text-muted">{{ item.location }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
-        </section>
-        {% endif %}
-    </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {% if site.data.profile.awards %}
+    <section class="background-card bg-white shadow-sm rounded-xl">
+        <h6 class="background-card-heading border-bottom border-gray mb-0">
+            <i class="fas fa-award"></i> Awards
+        </h6>
+        <div class="background-card-body">
+            <ul class="background-awards-list">
+                {% for item in site.data.profile.awards %}
+                <li>
+                    <span class="background-award-name">{{ item.name }}</span>
+                    {% if item.date and item.date != "" %}
+                    <span class="background-award-date">{{ item.date }}</span>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+    {% endif %}
 </div>

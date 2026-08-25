@@ -2,6 +2,15 @@
 {% assign hide_bottom_border = include.hide_bottom_border %}
 {% assign first = include.first %}
 {% assign last = include.last %}
+{% assign blog_summary = item.description | default: item.summary | default: item.tldr %}
+{% unless blog_summary %}
+    {% assign excerpt_text = item.excerpt | strip_html | strip %}
+    {% if excerpt_text == "TL;DR" %}
+        {% assign blog_summary = item.content | strip_html | replace: "TL;DR", "" | strip %}
+    {% else %}
+        {% assign blog_summary = excerpt_text %}
+    {% endif %}
+{% endunless %}
 
 <div class="blog-list-item border-bottom border-gray p-3 {% if hide_bottom_border %}border-0{% endif %}">
     <div class="row">
@@ -23,11 +32,7 @@
                 {% endif %}
             </div>
             <div class="blog-list-excerpt text-muted small">
-                {% if item.excerpt %}
-                    {{ item.excerpt | strip_html | truncate: 500 }}
-                {% else %}
-                    {{ item.content | strip_html | truncate: 500 }}
-                {% endif %} 
+                {{ blog_summary | strip_html | truncate: 160 }}
             </div>
             <div class="blog-list-link mt-2">
                 <a href="{{ item.url | relative_url }}">

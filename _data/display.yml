@@ -1,12 +1,7 @@
 homepage:
   show_news: true
-  show_selected_publications: true
-  selected_publications:
-  - cof-t2i
-  - realitybridge
-  show_selected_projects: true
-  selected_projects:
-  - openworldlib
+  show_publications: true
+  show_projects: true
   show_background: true
   num_news: 10
 

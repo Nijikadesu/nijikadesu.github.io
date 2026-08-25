@@ -213,11 +213,16 @@ h1, h2, h3, h4, h5, h6,
 .blog-toc-sidebar {
     min-width: 0;
     display: none;
+    position: static;
 }
 
 @media (min-width: 992px) {
     .blog-toc-sidebar {
         display: block;
+        position: sticky;
+        top: 6rem;
+        max-height: calc(100vh - 8rem);
+        overflow-y: auto;
     }
 }
 
@@ -229,10 +234,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Blog Table of Contents */
 .blog-toc-nav {
-    position: sticky;
-    top: 6rem;
-    max-height: calc(100vh - 8rem);
-    overflow-y: auto;
+    position: static;
     padding-left: 0.75rem;
     border-left: 1px solid var(--line-soft);
 }
