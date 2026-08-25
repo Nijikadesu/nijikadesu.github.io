@@ -23,53 +23,68 @@ linkedin: mingkunchang
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    I am an incoming master's student at <a href="https://www.sysu-hcp.net/" target="_blank">HCP Lab</a>, Sun Yat-sen University, advised by Prof. <a href="https://guanbinli.com/" target="_blank">Guanbin Li</a>. Previously, I received my B.Eng. in Artificial Intelligence from Xidian University, and spent a memorable three months at Westlake University, where I was fortunate to work with Prof. <a href="https://scholar.google.com/citations?user=HmylMfcAAAAJ&hl=en" target="_blank">Yandong Wen</a>.
+    I am a first-year Master's student at <a href="https://www.sysu-hcp.net/" target="_blank">HCP Lab</a>, Sun Yat-sen University, advised by Prof. <a href="https://guanbinli.com/" target="_blank">Guanbin Li</a>. I received my B.E. from the School of Artificial Intelligence, Xidian University. Previously, I was a visiting student at <a href="https://en.westlake.edu.cn/faculty/yandong-wen.html" target="_blank">CLR Lab</a>, Westlake University, working with Prof. <a href="https://scholar.google.com/citations?user=HmylMfcAAAAJ&hl=en" target="_blank">Yandong Wen</a> on LLMs mathematical reasoning, and interned at Huawei <a href="https://www.huawei.com/en/giv/intelligent-automotive-solution-2030" target="_blank">IAS BU</a>, working with Yunfei Liu on driving video synthesis. I also closely collaborate with <a href="https://visionchengzhuo.github.io/" target="_blank">Chengzhuo Tong</a> and <a href="https://scholar.google.com/citations?user=MHo_d3YAAAAJ&hl=en" target="_blank">Bohan Zeng</a> from <a href="https://github.com/OpenDCAI" target="_blank">DCAI Group</a>, Peking University, on video world models.
   </p>
   <p>
-    My research interests lie in <strong>video generation</strong> and <strong>world models</strong>. I am especially interested in:
+    My current work focuses on <strong>Video Generation & World Models</strong>, with a special interest in real-time interactive and game-oriented video world models.
   </p>
-  <ul>
-    <li><em>Generative reasoning</em> : understanding the internal reasoning mechanisms of video models and large language models, and exploring how such abilities may generalize.</li>
-    <li><em>Physical intelligence</em> : exploring how models can learn physical dynamics, spatial-temporal interactions, and actionable representations from real world data and simulation.</li>
-  </ul>
-  <p>
-    I am still exploring these fields and always happy to learn from different perspectives. Please feel free to reach out if you would like to exchange ideas, discuss research, or explore possible collaborations.
-  </p>
+  <blockquote class="about-connect-note">
+    I am always happy to exchange ideas, learn from feedback, and explore possible collaborations with people in and beyond the field, feel free to reach out by email or WeChat!
+  </blockquote>
 
-portrait_url: /assets/images/photos/cmk.jpg
+portrait_url: /assets/images/photos/personal_avatar.jpg
 portrait_caption: >-
-  Mingkun at the east gate of XDU, Xi'an, Shaanxi.
+  Nice to meet you 🤗
 
 education:
 - name: Sun Yat-sen University
+  logo: /assets/images/logos/sun-yat-sen-university.png
+  logo_text: SYSU
+  location: Guangzhou, China
   position: >-
-    School of Computer Science and Engineering <br/>
-    M.E. Student
-  date: 2026 - present
+    M.E. in Computer Science and Engineering
+  date: Sept 2026 - June 2029
 - name: Xidian University
-  position: B.Eng. in Artificial Intelligence
-  date: 2022 - 2026
+  logo: /assets/images/logos/xidian-university.png
+  logo_text: XDU
+  location: Xi'an, China
+  position: >-
+    B.E. in Artificial Intelligence<br/>
+    GPA: 90.3/100, Rank: 7/129
+  date: Sept 2022 - June 2026
 
 experience:
-- company: <a href="https://www.huawei.com/en/giv/intelligent-automotive-solution-2030" target="_blank">Intelligent Automotive Solution</a>, Huawei
-  logo: 
-  position: University-Industry Collaboration Intern
-  date: 2025.12 - 2026.9
-  topics:
-  - name: Topic
-    description: Video Generation Models, Autonomous Driving Data Synthesis.
-- company: <a href="https://en.westlake.edu.cn/faculty/yandong-wen.html" target="_blank">Computational Learning and Reasoning Lab</a>, Westlake University
-  logo: 
+- company: <a href="https://www.huawei.com/en/giv/intelligent-automotive-solution-2030" target="_blank">Intelligent Automotive Solution BU</a>, Huawei
+  logo: /assets/images/logos/huawei.svg
+  logo_text: HUA
+  location: Shenzhen, China
+  position: Collaboration Intern with Yunfei Liu
+  date: Dec 2025 - Sept 2026
+- company: <a href="https://github.com/OpenDCAI" target="_blank">Data-centric AI Group</a>, Peking University
+  logo: /assets/images/logos/peking-university-seal.svg
+  logo_text: PKU
+  location: Remote
+  position: Research Intern with <a href="https://scholar.google.com/citations?user=MHo_d3YAAAAJ&hl=en" target="_blank">Bohan Zeng</a>
+  date: Sept 2025 - Present
+- company: <a href="https://en.westlake.edu.cn/faculty/yandong-wen.html" target="_blank">CLR Lab</a>, Westlake University
+  logo: /assets/images/logos/westlake-university.png
+  logo_text: WU
+  location: Hangzhou, China
   position: Visiting Student with Prof. <a href="https://scholar.google.com/citations?user=HmylMfcAAAAJ&hl=en" target="_blank">Yandong Wen</a>
-  date: 2025.6 - 2025.12
-  topics:
-  - name: Topic
-    description: LLMs Math Reasoning, Reinforcement Learning.
+  date: Mar 2025 - Sept 2025
+- company: <a href="https://ipiu.xidian.edu.cn/" target="_blank">IPIU Lab</a>, Xidian University
+  logo: /assets/images/logos/xidian-university.png
+  logo_text: XDU
+  location: Xi'an, China
+  position: Research Intern with Dr. <a href="https://faculty.xidian.edu.cn/lishuo/zh_CN/index.htm" target="_blank">Shuo Li</a>
+  date: June 2024 - March 2025
 
 awards:
 - name: First-Class Academic Scholarship, Sun Yat-sen University
   date: 2026
-- name: Meritorious Winner, Interdisciplinary Contest In Modeling.
+- name: Second-Class Academic Scholarship, Xidian University
+  date: 2023&2024&2025
+- name: Meritorious Winner in Mathematical Contest in Modeling (MCM/ICM, Top 7.23% of 10,388 teams)
   date: 2024
-- name: Second Prize (Provincial Level), Mathematics Competition of Chinese College Students
+- name: Provincial Second Prize, National College Student Mathematics Competition
   date: 2023

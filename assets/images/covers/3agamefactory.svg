@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-labelledby="title desc">
+  <title id="title">3AGameFactory cover</title>
+  <desc id="desc">Minimal cover mark for the 3AGameFactory project.</desc>
+  <rect width="600" height="400" fill="#fafafa"/>
+  <rect x="34" y="34" width="532" height="332" rx="20" fill="#f7f8f7" stroke="#dfe5df" stroke-width="2"/>
+  <path d="M112 272h376" stroke="#d6ddd6" stroke-width="2"/>
+  <path d="M152 246l78-156 78 156h-42l-15-34h-45l-15 34h-39zm66-66h22l-11-29-11 29z" fill="#4f6254"/>
+  <path d="M323 246l78-156 78 156h-42l-15-34h-45l-15 34h-39zm66-66h22l-11-29-11 29z" fill="#4f6254"/>
+  <text x="300" y="305" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#2f3732">3AGameFactory</text>
+  <text x="300" y="333" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#687076">agent skills for game assets and engine-ready code</text>
+</svg>

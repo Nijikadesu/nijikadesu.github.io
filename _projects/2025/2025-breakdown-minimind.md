@@ -1,10 +1,9 @@
 ---
 title:          "BreakDown-MiniMind"
 date:           2025-01-01 00:01:00 +0800
-selected:       true
 project_id:     breakdown-minimind
 cover:          /assets/images/covers/breakdown-minimind.png
-role:           "Author"
+role:           "Owner"
 period:         "2026"
 stars:          158
 tech:           "Large Language Models, Jupyter Notebook, MiniMind"
